@@ -50,11 +50,20 @@ for i in range(1,5):
         row.append(c)
     print(row)
     board.append(row)
+finalwords = set()
 textFile = open('50kdict.txt')
 words = textFile.readlines()
 for i in range(len(words)):
     words[i] = words[i][:len(words[i])-1]
-ans = findWords(board,words)
-words = textFile.readlines()
+    finalwords.add(words[i])
+for i in range(4,8):
+    textFile = open(f'words{i}')
+    words = textFile.readlines()
+    for i in range(len(words)):
+        words[i] = words[i][:len(words[i])-1]
+        finalwords.add(words[i])
+ans = findWords(board,list(finalwords))
+ans = list(ans)
+ans.sort(key=len)
 print(ans, len(ans))
 
