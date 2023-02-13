@@ -40,7 +40,8 @@ def findWords(board, words):
             dfs(i,j,root,'')
     return res
 board = []
-for i in range(1,5):
+k = int(input("enter the number of rows in the board"))
+for i in range(1,k+1):
     row = []
     rowlet = input(f'please enter letters in row {i} in the form abcd where abcd are the letters in the row\n')
     while len(row) > 4:
